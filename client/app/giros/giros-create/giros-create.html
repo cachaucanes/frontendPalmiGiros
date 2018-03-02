@@ -1,0 +1,91 @@
+<div class="container-fluid ContainerCreate">
+  <div class="row">
+
+        
+    <div class="col-md-12">
+      
+      <form name="formUser" class="Registry-formTextArea" ng-submit="formUser.$valid && vm.registrarGiro()" novalidate>
+
+        <div class=" col-md-offset-11 hidden-sm hidden-xs">
+          <button type="submit" class="  btn btn-success BTN" ng-disabled="userForm.$invaled" name="Guardar">guardar</button>
+        </div>
+
+        <h1 class="Title-Register text-center"> <i class="fa fa-user-o" aria-hidden="true"></i>Realizar Giro</h1>
+
+        <div class="col-md-6 controlInpu">
+
+          <div class="row">
+            <div class="col-md-4">
+              <label for="">Documento emisor</label>
+              <input class="form-control" type="text" name="" ng-model="vm.documentoClienteEmisor" placeholder="Documento cliente">
+            </div>
+
+            <div class="col-md-8">
+              <label for="">Cliente emisor</label>
+              <input class="form-control text-uppercase" disabled type="text" value="{{vm.ClienteEmisor.nombres}} {{vm.ClienteEmisor.apellidos}}">
+            </div>
+
+
+            <div class="col-md-6 form-group controlInpu">
+              <label for="">Ciudades</label>
+              <select selected="demo" class="form-control" name="" id="" ng-model="vm.giros.idCiudadEmisor.id">
+                <option value="" disabled selected>Selecciona una ciudad</option>
+		          <option ng-value="item.id" ng-repeat="item in vm.ciudad">{{item.ciudad}}</option>            
+            </select>
+            </div>
+
+            <div class="col-md-6 form-group controlInpu">
+              <label for="">$ Monto</label>
+              <input class="form-control" type="text" placeholder="$.." ng-model="vm.giros.monto">
+            </div>
+
+            
+              <div class=" col-md-offset-3 col-md-9">
+                <button type="button" class="btn btn-info col-md-8" ng-click="vm.buscarClienteEmisor()">Buscar cliente</button>
+              </div>
+            
+
+          </div>
+            <i class="fa fa-share col-md-offset-11" aria-hidden="true"></i>
+        </div>
+
+        <div class="form-group Form col-md-6 controlInpu">
+
+          <div class="row BorderGiro">
+            <div class="col-md-4">
+              <label for="">Documento receptor</label>
+              <input class="form-control" type="text" name="" ng-model="vm.documentoClienteReceptor" placeholder="Numero cliente">
+
+            </div>
+
+            <div class="col-md-8">
+              <label for="">Nombre cliente receptor</label>
+              <input class="form-control text-uppercase" disabled type="text" value="{{vm.ClienteReceptor.nombres}} {{vm.ClienteReceptor.apellidos}}">
+            </div>
+
+            <div class="col-md-offset-2 col-md-8 form-group controlInpu">
+              <label for="">Ciudades</label>
+              <select class="form-control col-md-3" name="" id="" ng-model="vm.giros.idCiudadReceptor.id">
+                <option value="" disabled selected>Selecciona una ciudad</option>
+		          <option ng-value="item.id" ng-repeat="item in vm.ciudad">{{item.ciudad}}</option>            
+            </select>
+            </div>
+
+            <div class="col-md-offset-3 col-md-8 ">
+              <button type="button" class="btn btn-info col-md-8" ng-click="vm.buscarClienteReceptor()">Buscar cliente</button>
+            </div>
+
+          </div>
+
+          <div class="col-md-12 ButtonSM hidden-md hidden-lg">
+          <button type="submit" class="col-xs-6 col-xs-offset-3 col-sm-offset-4  col-sm-4 btn btn-success BTN" ng-disabled="userForm.$invaled" name="Guardar">guardar</button>
+        </div>
+
+        </div>
+        
+        
+      </form>
+    </div>
+  </div>
+
+</div>

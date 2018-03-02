@@ -1,0 +1,65 @@
+<div class="navbar navbar-default navbar-static-top" ng-controller="NavbarController">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" ng-click="nav.isCollapsed = !nav.isCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">PalmiGiros SA</a>
+    </div>
+    <div uib-collapse="nav.isCollapsed" class="navbar-collapse collapse" id="navbar-main">
+      <ul class="nav navbar-nav">
+
+        <li class="dropdown" ui-sref-active="active">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Giros <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a ui-sref="giros-create">Realizar Giro <i class="fa fa-users" aria-hidden="true"></i></a></li>
+            <li><a ui-sref="giros-list">Recibir Giros <i class="fa fa-handshake-o" aria-hidden="true"></i></a></li>
+            <li><a ui-sref="giros-list-all">Listar todos los Giros <i class="fa fa-handshake-o" aria-hidden="true"></i></a></li>
+            
+          
+          </ul>
+        </li>
+      </ul>
+
+
+      <ul class="nav navbar-nav">
+
+        <li class="dropdown" ui-sref-active="active"  ng-show="vm.AuthService.isAdmin()">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a ui-sref="usuarios-list">Listar Usarios <i class="fa fa-user-secret" aria-hidden="true"></i></a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav">
+
+        <li class="dropdown" ui-sref-active="active">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Clientes<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a ui-sref="clientes-list">Listar Clientes <i class="fa fa-user" aria-hidden="true"></i></a></li>
+            <li><a ui-sref="clientes-create">Registrar Clientes <i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- <ul class="nav navbar-nav navbar-right">
+        <li><a ui-sref="login">Login</a></li>
+      </ul> -->
+
+      <ul class="nav nav-tabs navbar-right">
+        <li ng-show="!vm.AuthService.isAuthenticated()" ui-sref-active="active"><a ui-sref="login">Login</a></li>
+        <li ng-show="vm.AuthService.isAuthenticated()" class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> {{vm.AuthService.datosUsuario()}} <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li ><a ng-click="vm.AuthService.logout()" href="#">Salir</a></li>
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
